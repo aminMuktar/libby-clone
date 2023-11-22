@@ -36,10 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'catalog',
     'rest_framework',
     'django_filters',
+    'django.contrib.staticfiles',  # required for GraphiQL
+    'graphene_django'
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,9 @@ REST_FRAMEWORK = {
 }
 
 WSGI_APPLICATION = 'libbyclone.wsgi.application'
-
+GRAPHENE = {
+    'SCHEMA': 'libbyclone.schema.schema'
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
