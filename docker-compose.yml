@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    command: python /libby-clone/manage.py runserver 0.0.0.0:8000
+    volumes:
+     - .:/libby-clone
+    ports:
+      - 8000:8000
+    # environment:
+    #   - "DJANGO_SECRET_KEY=django-insecure-lq)!1zpget-9shxx@ozg$$n(x6kh1_b6l39dfh*%7ayhheav#t_"
+    #   - "DJANGO_DEBUG=True"      
+    user: 1000:1000
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+volumes:
+  postgres_data:
