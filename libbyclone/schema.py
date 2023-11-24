@@ -1,14 +1,15 @@
 from graphene import Schema, ObjectType
 import catalog.schema
+import users.gql.schema
 
 
-class Query(catalog.schema.Query, ObjectType):
+class Query(catalog.schema.Query, users.gql.schema.Query, ObjectType):
     # this class will inherit from multiple queries
     # as we begin to add more apps to our project
     pass
 
 
-class Mutation(catalog.schema.Mutation, ObjectType):
+class Mutation(catalog.schema.Mutation, users.gql.schema.Mutation, ObjectType):
     # this class will inherit from multiple Mutations
     # as we begin to add more apps to our project
     pass
