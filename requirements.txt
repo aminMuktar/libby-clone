@@ -2,6 +2,7 @@ aniso8601==9.0.1
 asgiref==3.7.2
 Django==4.0.10
 django-filter==23.4
+django-graphql-jwt==0.4.0
 djangorestframework==3.14.0
 graphene==3.3
 graphene-django==3.1.5
@@ -10,6 +11,7 @@ graphql-relay==3.2.0
 promise==2.3
 psycopg2-binary==2.9.7
 pycparser==2.21
+PyJWT==2.8.0
 pytz==2023.3.post1
 six==1.16.0
 sqlparse==0.4.4

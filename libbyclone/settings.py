@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'catalog',
+    'users',
     'rest_framework',
     'django_filters',
     'django.contrib.staticfiles',  # required for GraphiQL
@@ -80,8 +81,16 @@ REST_FRAMEWORK = {
 
 WSGI_APPLICATION = 'libbyclone.wsgi.application'
 GRAPHENE = {
-    'SCHEMA': 'libbyclone.schema.schema'
+    'SCHEMA': 'libbyclone.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
 }
+
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -135,7 +144,8 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = os.environ.get('STATIC_ROOT', '/staticfiles/')
 
-
+LOGIN_URL = '/admin/'
+LOGIN_REDIRECT_URL = '/graphql'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
