@@ -4,6 +4,7 @@ Django==4.0.10
 django-filter==23.4
 django-graphql-jwt==0.4.0
 djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.0
 graphene==3.3
 graphene-django==3.1.5
 graphql-core==3.2.3
