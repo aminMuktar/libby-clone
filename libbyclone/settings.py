@@ -36,13 +36,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'catalog',
-    'users',
     'rest_framework',
     'django_filters',
     'django.contrib.staticfiles',  # required for GraphiQL
-    'graphene_django'
+    'graphene_django',
+    'catalog',
+    'users',
+    'reviews',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

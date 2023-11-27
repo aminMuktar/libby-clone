@@ -1,6 +1,7 @@
 from graphene import Schema, ObjectType
 import catalog.schema
 import users.gql.schema
+import reviews.gql.schema
 
 
 class Query(catalog.schema.Query, users.gql.schema.Query, ObjectType):
@@ -9,7 +10,7 @@ class Query(catalog.schema.Query, users.gql.schema.Query, ObjectType):
     pass
 
 
-class Mutation(catalog.schema.Mutation, users.gql.schema.Mutation, ObjectType):
+class Mutation(catalog.schema.Mutation, users.gql.schema.Mutation, reviews.gql.schema.Mutation, ObjectType):
     # this class will inherit from multiple Mutations
     # as we begin to add more apps to our project
     pass
